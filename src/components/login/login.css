@@ -1,0 +1,10 @@
+.login_card {
+  width: 300px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.238);
+  margin: auto;
+  border-radius: 10px;
+}
+.login_card:hover {
+  box-shadow: 1px 1px 1px 1px rgba(80, 102, 227, 0.581);
+}
