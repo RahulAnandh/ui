@@ -1,10 +1,17 @@
 import LoginIndex from "./components/login";
-import "./App.css";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LayoutIndex from "./components/layout";
 function App() {
   return (
-    <div className="body_background">
-      <LoginIndex />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<LoginIndex />} path="/login" />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<LayoutIndex />} path="/layout"></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
