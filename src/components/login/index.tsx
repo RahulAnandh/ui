@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import "./login.css";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "../../app/store";
+
+import { login } from "../../features/auth/authSlice";
+
 const LoginIndex: React.FC = () => {
   const [loginData, setLoginData] = useState({ user_name: "", password: "" });
+  const auth = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch();
   const callLoginApi = () => {
-    console.log("1---1", loginData);
+    dispatch(login(loginData));
+    // console.log("1---1", loginData);
   };
   return (
     <div className="body_background">
