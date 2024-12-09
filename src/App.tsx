@@ -1,12 +1,21 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import LayoutIndex from "./components/layout";
+import LoginIndex from "./components/login";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <>First Commit</>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<LoginIndex />} path="/" />
+        <Route element={<LoginIndex />} path="/login" />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<LayoutIndex />} path="/layout"></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
