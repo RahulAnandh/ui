@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LayoutIndex from "./components/layout";
 import LoginIndex from "./components/login";
-
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {}, []);
   return (
     <BrowserRouter>
       <Routes>
