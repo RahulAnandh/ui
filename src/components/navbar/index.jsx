@@ -7,12 +7,16 @@ const NavbarIndex = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/home" />
-            Home
+            <Link to="dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link to="/profile" />
-            Profile
+            <Link to="home">Home</Link>
+          </li>
+          <li>
+            <Link to="profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="employee">Employee</Link>
           </li>
         </ul>
       </nav>

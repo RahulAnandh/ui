@@ -8,7 +8,9 @@ const PrivateRoutes = () => {
   return auth.token ? (
     <div className="layout-container">
       <NavbarIndex />
-      <Outlet />
+      <div className="layout-content">
+        <Outlet />
+      </div>
     </div>
   ) : (
     <Navigate to="/login" />
