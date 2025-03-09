@@ -1,14 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "./new_employee_form_modal.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import {
+  createEmployee,
+  updateEmployee,
+  deleteEmployee,
+  getEmployee,
+  getAllEmployees,
+} from "../../features/employee/employeeSlice";
 const NewEmployeeFormModal = (props) => {
-  const { showModal, setShowModal, content } = props;
+  const employee = useSelector((state) => state.employee);
+  const dispatch = useDispatch();
 
+  const { showModal, setShowModal, content } = props;
+  const [employee_data, setEmployeeData] = useState({
+    first_name: "",
+    last_name: "",
+    house_name: "",
+    zip_code: "",
+    town: "",
+    city: "",
+    state: "",
+    country: "",
+    bank_account_no: "",
+    bank_name: "",
+    bank_location: "",
+    ifsc_code: "",
+    email: "",
+    contact: "",
+    emergancy_contact: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmployeeData({ ...employee_data, [name]: value });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(createEmployee(employee_data));
+  };
   return (
     <div
       className={showModal ? "modal-form show" : "modal-form"}
       role="document"
     >
+      {console.log("1---1", employee_data)}
       <div className="modal-content">
         <div className="modal-header">
           <button
@@ -23,28 +58,78 @@ const NewEmployeeFormModal = (props) => {
             <span aria-hidden="true">&times;</span>
           </button>
           <h4 className="modal-title" id="myModalLabel">
-            Rigth Sidebar
+            Create New Employee
           </h4>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            vitae nulla ut ex lobortis aliquet eu non urna. Morbi fringilla,
-            nulla sit amet vulputate lobortis, justo lectus porta erat, vitae
-            placerat sem velit rutrum leo. Nunc vestibulum diam sed imperdiet
-            viverra. Donec ultricies viverra leo ac tempus. Phasellus laoreet,
-            libero id molestie bibendum, massa ligula pharetra mauris, tincidunt
-            pretium ligula diam eu lacus. Suspendisse sagittis porta posuere.
-            Maecenas at ornare nulla. Pellentesque et urna in metus iaculis
-            porttitor a ac arcu. Aliquam ligula mauris, venenatis in magna at,
-            lacinia ultrices justo. Aenean eget commodo urna. Vivamus gravida
-            congue leo. Ut eleifend congue tortor vel porttitor. Pellentesque
-            eleifend massa libero. Integer imperdiet tincidunt augue nec
-            sodales.
-          </p>
         </div>
 
         <div className="modal-body">
-          <p>{content}</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="first_name"
+              onChange={handleChange}
+            ></input>
+            <label>First Name</label>
+
+            <input type="text" name="last_name" onChange={handleChange}></input>
+            <label>Last Name</label>
+
+            <input
+              type="text"
+              name="house_name"
+              onChange={handleChange}
+            ></input>
+            <label>House Name/Apt No</label>
+
+            <input type="text" name="zip_code" onChange={handleChange}></input>
+            <label>ZIP Code</label>
+
+            <input type="text" name="town" onChange={handleChange}></input>
+            <label>Town</label>
+
+            <input type="text" name="city" onChange={handleChange}></input>
+            <label>City</label>
+
+            <input type="text" name="state" onChange={handleChange}></input>
+            <label>State</label>
+
+            <input type="text" name="country" onChange={handleChange}></input>
+            <label>Country</label>
+
+            <input
+              type="text"
+              name="bank_account_no"
+              onChange={handleChange}
+            ></input>
+            <label>Bank Account No</label>
+
+            <input type="text" name="bank_name" onChange={handleChange}></input>
+            <label>Bank Name</label>
+
+            <input
+              type="text"
+              name="bank_location"
+              onChange={handleChange}
+            ></input>
+            <label>Bank Location</label>
+
+            <input type="text" name="ifsc_code" onChange={handleChange}></input>
+            <label>IFSC Code</label>
+
+            <input type="email" name="email" onChange={handleChange}></input>
+            <label>E-mail</label>
+
+            <input type="text" name="contact" onChange={handleChange}></input>
+            <label>Contact No</label>
+
+            <input
+              type="text"
+              name="emergancy_contact"
+              onChange={handleChange}
+            ></input>
+            <label>Emergancy Contact</label>
+            <input type="submit" value="Submit"></input>
+          </form>
         </div>
       </div>
     </div>
