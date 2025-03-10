@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NewEmployeeFormModal from "./new_employee_form_modal";
+import { createEmployeeAPI } from "../../features/employee/employeeSlice";
+import { useSelector, useDispatch } from "react-redux";
+import EmployeeTable from "./employee_table";
 
 const EmployeeIndex = () => {
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {}, []);
 
   return (
     <div>
@@ -14,6 +19,7 @@ const EmployeeIndex = () => {
       >
         + New Employee
       </button>
+      <EmployeeTable />
       <NewEmployeeFormModal showModal={showModal} setShowModal={setShowModal} />
     </div>
   );

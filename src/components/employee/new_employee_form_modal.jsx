@@ -7,6 +7,7 @@ import {
   deleteEmployee,
   getEmployee,
   getAllEmployees,
+  createEmployeeAPI,
 } from "../../features/employee/employeeSlice";
 const NewEmployeeFormModal = (props) => {
   const employee = useSelector((state) => state.employee);
@@ -36,7 +37,7 @@ const NewEmployeeFormModal = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createEmployee(employee_data));
+    dispatch(createEmployeeAPI(employee_data));
   };
   return (
     <div
