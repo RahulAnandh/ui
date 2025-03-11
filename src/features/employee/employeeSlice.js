@@ -2,9 +2,16 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const createEmployeeAPI = createAsyncThunk(
   "createEmployeeAPI",
-  async (a, b) => {
-    console.log("1---3", a, b);
-    const response = await fetch("http://localhost:3001/employee/create");
+  async (data) => {
+    console.log("1---3", data);
+    const response = await fetch("http://localhost:3001/employee/create", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ employee_data: data }),
+    });
     return response.json();
   }
 );
