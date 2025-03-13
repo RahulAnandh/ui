@@ -44,7 +44,6 @@ const NewEmployeeFormModal = (props) => {
       className={showModal ? "modal-form show" : "modal-form"}
       role="document"
     >
-      {console.log("1---1", employee_data)}
       <div className="modal-content">
         <div className="modal-header">
           <button
