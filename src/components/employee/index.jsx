@@ -3,6 +3,7 @@ import NewEmployeeFormModal from "./new_employee_form_modal";
 import { createEmployeeAPI } from "../../features/employee/employeeSlice";
 import { useSelector, useDispatch } from "react-redux";
 import EmployeeTable from "./employee_table";
+import "./index.css";
 
 const EmployeeIndex = () => {
   const [showModal, setShowModal] = useState(false);
@@ -10,7 +11,7 @@ const EmployeeIndex = () => {
   useEffect(() => {}, []);
 
   return (
-    <div>
+    <div className="employee_table_container">
       <button
         onClick={() => {
           console.log("button click");
