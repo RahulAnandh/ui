@@ -4,19 +4,20 @@ import { Link } from "react-router-dom";
 const NavbarIndex = () => {
   return (
     <div className="navigation-bar">
+      <h1><div id="red">Red</div><div id="land">Land</div></h1>
       <nav>
         <ul>
           <li>
-            <Link to="dashboard">Dashboard</Link>
+            <h2><Link to="dashboard">Dashboard</Link></h2>
           </li>
           <li>
-            <Link to="home">Home</Link>
+            <h2><Link to="home">Home</Link></h2>
           </li>
           <li>
-            <Link to="profile">Profile</Link>
+            <h2><Link to="profile">Profile</Link></h2>
           </li>
           <li>
-            <Link to="employee">Employee</Link>
+            <h2><Link to="employee">Employee</Link></h2>
           </li>
         </ul>
       </nav>
