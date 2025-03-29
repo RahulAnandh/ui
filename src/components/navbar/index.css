@@ -5,10 +5,13 @@
 h1{
   display: flex;
 }
+h2:hover{
+  background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
 
 #red{
   color: rgb(255, 0, 0);
 }
 #land{
-  color:rgb(0, 255, 0)
+  color:rgb(15, 103, 15)
 }
